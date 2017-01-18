@@ -345,6 +345,15 @@
     });
   }
 
+  out$.svgAsRaw = function(el, options, cb) {
+    out$.prepareSvg(el, options, function(svg) {
+      var svgData = 'data:image/svg+xml;base64,' + doctype + svg;
+      if (cb) {
+        cb(svgData);
+      }
+    });
+  }
+
   out$.svgAsPngUri = function(el, options, cb) {
     requireDomNode(el);
 
